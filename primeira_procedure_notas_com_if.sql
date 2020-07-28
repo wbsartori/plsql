@@ -1,4 +1,3 @@
-  
 /* PRIMEIRO PROCEDIMENTO PLSQL */
 
 SET SERVEROUTPUT ON;
@@ -15,11 +14,19 @@ CREATE OR REPLACE PROCEDURE NOTAS
 BEGIN
     
     NOME    := 'Wesley Sartori';
-    NOTA1   := 5;
-    NOTA2   := 8;
-    NOTA3   := 10;
+    NOTA1   := 0;
+    NOTA2   := 2;
+    NOTA3   := 5;
     SOMA := (NOTA1 + NOTA2 + NOTA3);
     MEDIA := SOMA / 3;
+    
+    IF MEDIA >= 7 AND MEDIA < 10 THEN
+        DBMS_OUTPUT.PUT_LINE('ALUNO APROVADO.' || (MEDIA));        
+    ELSIF MEDIA = 10 THEN
+        DBMS_OUTPUT.PUT_LINE('ALUNO EXCELENTE.' || (MEDIA));            
+    ELSE 
+        DBMS_OUTPUT.PUT_LINE('ALUNO REPROVADO.' || (MEDIA));    
+    END IF;
     DBMS_OUTPUT.PUT_LINE('A SOMA DAS NOTAS É ' || (SOMA));
     DBMS_OUTPUT.PUT_LINE('A MÉDIA DAS NOTAS É ' || (MEDIA));    
 END;
