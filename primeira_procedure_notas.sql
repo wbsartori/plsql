@@ -1,0 +1,26 @@
+/* PRIMEIRO PROCEDIMENTO PLSQL */
+
+SET SERVEROUTPUT ON;
+
+CREATE OR REPLACE PROCEDURE NOTAS
+    IS
+    NOTA1       NUMBER;
+    NOTA2       NUMBER;
+    NOTA3       NUMBER;
+    RESULTADO   NUMBER;
+    SOMA        NUMBER;
+    MEDIA       NUMBER;
+    NOME        VARCHAR(50);
+BEGIN
+    
+    NOME    := 'Wesley Sartori';
+    NOTA1   := 5;
+    NOTA2   := 8;
+    NOTA3   := 10;
+    SOMA := (NOTA1 + NOTA2 + NOTA3);
+    MEDIA := SOMA / 3;
+    DBMS_OUTPUT.PUT_LINE('A SOMA DAS NOTAS É ' || (SOMA));
+    DBMS_OUTPUT.PUT_LINE('A MÉDIA DAS NOTAS É ' || (MEDIA));    
+END;
+
+EXECUTE NOTAS;
