@@ -1,1 +1,76 @@
-# plsql
+# PL/SQL
+```sql
+/*Faça um Programa que peça dois números e imprima o maior deles.*/
+
+SET SERVEROUTPUT ON;
+
+DECLARE 
+
+    NUMERO_UM   NUMBER;
+    NUMERO_DOIS NUMBER;
+    
+BEGIN
+
+    NUMERO_UM := 2;
+    NUMERO_DOIS := 10;
+    
+    IF NUMERO_UM > NUMERO_DOIS THEN
+        DBMS_OUTPUT.PUT_LINE('O NUMERO ' || (NUMERO_UM) || ' É MAIOR');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('O NUMERO ' || (NUMERO_DOIS) || ' É MAIOR');
+    END IF;
+END;
+
+/* Soma das Notas PLSQL */
+
+SET SERVEROUTPUT ON;
+
+CREATE OR REPLACE PROCEDURE NOTAS
+    IS
+    NOTA1       NUMBER;
+    NOTA2       NUMBER;
+    NOTA3       NUMBER;
+    RESULTADO   NUMBER;
+    SOMA        NUMBER;
+    MEDIA       NUMBER;
+    NOME        VARCHAR(50);
+BEGIN
+    
+    NOME    := 'Wesley Sartori';
+    NOTA1   := 5;
+    NOTA2   := 8;
+    NOTA3   := 10;
+    SOMA := (NOTA1 + NOTA2 + NOTA3);
+    MEDIA := SOMA / 3;
+    DBMS_OUTPUT.PUT_LINE('A SOMA DAS NOTAS É ' || (SOMA));
+    DBMS_OUTPUT.PUT_LINE('A MÉDIA DAS NOTAS É ' || (MEDIA));    
+END;
+
+EXECUTE NOTAS;
+
+/* Mese PLSQL */
+
+SET SERVEROUTPUT ON;
+
+CREATE OR REPLACE PROCEDURE QUAL_MES
+    IS
+    QUAL_MES NUMBER;
+    NOME_MES VARCHAR2(15);
+BEGIN
+    QUAL_MES := 12;
+    CASE 
+        WHEN QUAL_MES = 1  THEN NOME_MES   := 'JANEIRO';
+        WHEN QUAL_MES = 2  THEN NOME_MES   := 'FEVEREIRO';
+        WHEN QUAL_MES = 3  THEN NOME_MES   := 'MARÇO';
+        WHEN QUAL_MES = 4  THEN NOME_MES   := 'ABRIL';
+        WHEN QUAL_MES = 5  THEN NOME_MES   := 'MAIO';
+        WHEN QUAL_MES = 6  THEN NOME_MES   := 'JUNHO';
+        WHEN QUAL_MES = 7  THEN NOME_MES   := 'JULHO';
+        WHEN QUAL_MES = 8  THEN NOME_MES   := 'AGOSTO';
+        WHEN QUAL_MES = 9  THEN NOME_MES   := 'SETEMBRO';
+        WHEN QUAL_MES = 10 THEN NOME_MES   := 'OUTUBRO';
+        WHEN QUAL_MES = 11 THEN NOME_MES   := 'NOVEMBRO';
+        WHEN QUAL_MES = 12 THEN NOME_MES   := 'DEZEMBRO';
+    END CASE;
+    DBMS_OUTPUT.PUT_LINE(NOME_MES);    
+END;
